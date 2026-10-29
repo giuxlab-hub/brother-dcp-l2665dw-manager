@@ -8,3 +8,6 @@ The program uses standard CUPS command-line tools and the official Brother web i
 
 Build: `bash build-deb.sh`
 License: GPL-3.0-or-later. Unaffiliated with Brother Industries, Ltd.
+
+## Languages
+The application supports Italian and English, automatically choosing the desktop language at launch. The language can also be switched directly from the application header without restarting.

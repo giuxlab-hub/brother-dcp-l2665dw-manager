@@ -1,4 +1,4 @@
-# Brother DCP-L2665DW Manager 0.1.0
+# Brother DCP-L2665DW Manager 0.2.0
 
 Original Giux-Lab Linux GTK3/CUPS application source. Original author README: [README.original.md](README.original.md).
 
