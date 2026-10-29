@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+# SPDX-License-Identifier: GPL-3.0-or-later
 """Brother DCP-L2665DW Manager: safe Linux frontend to CUPS and Brother Web Based Management."""
 import os
 import re
@@ -189,6 +191,11 @@ class Window(Gtk.Window):
             self.error(exc)
             return
         self.display(tr('Lettura stato CUPS in corso…'))
+        try:
+            status_url = self.url()
+        except ValueError as exc:
+            self.error(exc)
+            return
 
         def work():
             parts = []
@@ -196,8 +203,7 @@ class Window(Gtk.Window):
                 code, out = command(*args)
                 parts.append('$ ' + ' '.join(args) + '\n' + (out or tr('(nessuna coda attiva)')) + '\n')
             try:
-                url = self.url()
-                with urllib.request.urlopen(url, timeout=4) as resp:
+                with urllib.request.urlopen(status_url, timeout=4) as resp:
                     parts.append('Brother Web Based Management: HTTP ' + str(resp.status))
             except Exception as exc:
                 parts.append(tr('Brother Web Based Management: non raggiungibile (') + str(exc) + ')')

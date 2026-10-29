@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Brother DCP-L2665DW Manager
+Name[it]=Gestione Brother DCP-L2665DW
+Comment=Manage Brother DCP-L2665DW printing and access official maintenance
+Comment[it]=Gestisci stampa Brother DCP-L2665DW e manutenzione ufficiale
+Exec=brother-dcp-l2665dw-manager
+Icon=brother-dcp-l2665dw-manager
+Terminal=false
+Categories=System;GTK;
+Keywords=Brother;CUPS;Printer;Maintenance;Stampante;
+StartupNotify=true

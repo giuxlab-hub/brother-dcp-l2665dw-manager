@@ -1,14 +1,14 @@
 #!/bin/sh
 set -eu
 cd "$(dirname "$0")"
-VERSION=0.2.0
+VERSION=0.2.1
 STAGE="$(mktemp -d)"
 trap 'rm -rf "$STAGE"' EXIT
 mkdir -p "$STAGE/DEBIAN" "$STAGE/usr/bin" "$STAGE/usr/share/applications" "$STAGE/usr/share/icons/hicolor/scalable/apps" "$STAGE/usr/share/doc/brother-dcp-l2665dw-manager"
 install -m 755 brother-dcp-l2665dw-manager "$STAGE/usr/bin/brother-dcp-l2665dw-manager"
 cat > "$STAGE/DEBIAN/control" <<'CONTROL'
 Package: brother-dcp-l2665dw-manager
-Version: 0.2.0
+Version: 0.2.1
 Section: utils
 Priority: optional
 Architecture: all
@@ -39,4 +39,4 @@ cat > "$STAGE/usr/share/icons/hicolor/scalable/apps/brother-dcp-l2665dw-manager.
 SVG
 install -m 644 README.md "$STAGE/usr/share/doc/brother-dcp-l2665dw-manager/README.md"
 find "$STAGE" -type d -exec chmod 755 {} +
-dpkg-deb --build --root-owner-group "$STAGE" "/home/giu/brother-dcp-l2665dw-manager_0.2.0_all.deb"
+dpkg-deb --build --root-owner-group "$STAGE" "./brother-dcp-l2665dw-manager_0.2.1_all.deb"
